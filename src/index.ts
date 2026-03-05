@@ -13,6 +13,7 @@ import {
 import { z } from "zod";
 
 import { auth } from "./lib/auth.js";
+
 const app = Fastify({
   logger: true,
 });
@@ -30,7 +31,7 @@ await app.register(fastifySwagger, {
     servers: [
       {
         description: "localhost",
-        url: "http://localhost:3000",
+        url: "http://localhost:8080",
       },
     ],
   },
@@ -54,7 +55,7 @@ await app.register(fastifyApiReference, {
       {
         title: "Auth API",
         slug: "auth-api",
-        url: "api/auth/open-api/generate-schema",
+        url: "/api/auth/open-api/generate-schema",
       },
     ],
   },
